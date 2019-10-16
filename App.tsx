@@ -26,6 +26,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import truc from 'root' // delete this later
+
 const App = () => {
   const usingHermes = typeof HermesInternal === 'object' && HermesInternal !== null;
   return (
@@ -42,6 +44,7 @@ const App = () => {
             </View>
           )}
           <View style={styles.body}>
+            <Text>{undefined?.truc?.a?.b?.c?.d ? 'A' : 'B'}</Text>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
