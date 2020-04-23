@@ -10,7 +10,7 @@ const List = () => {
           identification: 'Rusticana, ovale sur plat',
           stamp: 'de service vers 1900',
           value: '100€',
-          itemID: '203 bis',
+          itemID: '203',
         }}
       />
       <ItemTeaser />

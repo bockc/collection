@@ -54,7 +54,7 @@ const ItemTeaser = (props) => {
         borderColor: '#333333',
         borderRadius: 4,
         padding: 2,
-        maxWidth: 32,
+        maxWidth: 38,
         marginRight: 4,
       }}
     >
