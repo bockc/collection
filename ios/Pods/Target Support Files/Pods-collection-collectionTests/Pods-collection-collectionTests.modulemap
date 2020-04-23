@@ -1,0 +1,6 @@
+module Pods_collection_collectionTests {
+  umbrella header "Pods-collection-collectionTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,39 @@
+{
+  "presets": [
+    "module:metro-react-native-babel-preset"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "actions": "./src/actions",
+          "assets": "./src/assets",
+          "components": "./src/components",
+          "config": "./src/config",
+          "locales": "./src/locales",
+          "logger": "./src/Logger/actions/log",
+          "trads": "./src/I18n",
+          "modules": "./src/modules",
+          "navbar": "./src/Navbar",
+          "sqbStyleSheet": "./src/sqbStyleSheet",
+          "rights": "./src/Rights",
+          "routes": "./src/routes",
+          "utils": "./src/utils",
+          "testHelpers": "./e2e/helpers",
+          "theme": "./src/theme"
+        }
+      }
+    ],
+    "@babel/plugin-transform-flow-strip-types",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-optional-chaining"
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-remove-console"
+      ]
+    }
+  }
+}
