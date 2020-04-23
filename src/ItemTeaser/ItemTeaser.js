@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import PropTypes from 'prop-types';
+import images from '../../assets';
 
 const ItemTeaser = (props) => {
   const [identification, setIdentification] = useState(props.data?.identification); // identification (décor-forme)
@@ -18,28 +19,44 @@ const ItemTeaser = (props) => {
   const renderPicture = () => (
     <View
       style={{
-        backgroundColor: 'cyan',
-        height: 50,
-        width: 50,
+        backgroundColor: '#CCCCCC',
+        height: 100,
+        width: 100,
         borderRadius: 8,
         justifyContent: 'center',
+        alignItems: 'center',
         alignSelf: 'center',
-        marginLeft: 4,
       }}
     >
-      <Text style={{ fontSize: 12 }}>PICTURE</Text>
+      {props?.data?.picture ? (
+        <Text style={{ fontSize: 12 }}>PICTURE</Text>
+      ) : (
+        <Image
+          style={{
+            height: 54,
+            width: 54,
+            marginBottom: 16, // I'm ashamed of doing this, but the icon is just very bad.
+            alignSelf: 'center',
+            justifyContent: 'center',
+            alignItems: 'center',
+            alignContent: 'center',
+          }}
+          alignSelf="center"
+          source={images.placeholders.moutardier}
+        />
+      )}
     </View>
   );
 
   const renderDetails = () => (
-    <View style={{ flex: 1, marginLeft: 4, marginTop: 2 }}>
-      <Text multiline={false} numberOfLines={1}>
+    <View style={{ flex: 1, marginLeft: 8, marginTop: 2, marginRight: 2 }}>
+      <Text numberOfLines={2} style={{ fontSize: 18 }}>
         {identification}
       </Text>
-      <Text multiline={false} numberOfLines={1}>
+      <Text multiline={false} numberOfLines={1} style={{ fontSize: 16 }}>
         {stamp}
       </Text>
-      <Text multiline={false} numberOfLines={1}>
+      <Text multiline={false} numberOfLines={1} style={{ fontSize: 16 }}>
         {value}
       </Text>
     </View>
@@ -63,20 +80,20 @@ const ItemTeaser = (props) => {
   );
 
   return (
-    <View
+    <TouchableOpacity
       style={{
         flex: 1,
         flexDirection: 'row',
-        maxHeight: 64,
         backgroundColor: 'white',
         borderRadius: 10,
         marginBottom: 4,
+        padding: 4,
       }}
     >
       {renderPicture()}
       {renderDetails()}
       {renderID()}
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -85,7 +102,7 @@ ItemTeaser.propTypes = {
     identification: PropTypes.string,
     stamp: PropTypes.string,
     value: PropTypes.string,
-    itemID: PropTypes.string,
+    itemID: PropTypes.number,
   }),
 };
 
