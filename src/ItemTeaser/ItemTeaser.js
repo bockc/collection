@@ -23,6 +23,8 @@ const ItemTeaser = (props) => {
         height: 100,
         width: 100,
         borderRadius: 8,
+        borderWidth: 1,
+        borderColor: '#888888',
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
@@ -71,8 +73,9 @@ const ItemTeaser = (props) => {
         borderColor: '#333333',
         borderRadius: 4,
         padding: 2,
-        maxWidth: 38,
+        maxWidth: 42,
         marginRight: 4,
+        fontSize: 20,
       }}
     >
       {itemID}
@@ -86,8 +89,9 @@ const ItemTeaser = (props) => {
         flexDirection: 'row',
         backgroundColor: 'white',
         borderRadius: 10,
-        marginBottom: 4,
+        // marginBottom: 4,
         padding: 4,
+        paddingBottom: 8,
       }}
     >
       {renderPicture()}

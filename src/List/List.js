@@ -1,6 +1,7 @@
 import React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, View } from 'react-native';
 import Liste from '../../Liste';
+import SearchBar from '../SearchBar';
 import ItemTeaser from '../ItemTeaser';
 
 const List = () => {
@@ -20,8 +21,11 @@ const List = () => {
     });
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#EEEEEE', padding: 4 }}>
-      <ScrollView>{renderList()}</ScrollView>
+    <SafeAreaView style={{ flex: 1 }}>
+      <SearchBar />
+      <ScrollView style={{ flex: 1, padding: 4, backgroundColor: 'purple' }}>
+        {renderList()}
+      </ScrollView>
     </SafeAreaView>
   );
 };
