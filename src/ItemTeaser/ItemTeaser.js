@@ -50,10 +50,10 @@ const ItemTeaser = (props) => {
 
   const renderDetails = () => (
     <View style={{ flex: 1, marginLeft: 8, marginTop: 2, marginRight: 2 }}>
-      <Text numberOfLines={2} style={{ fontSize: 18 }}>
+      <Text numberOfLines={2} style={{ fontSize: 20 }}>
         {identification}
       </Text>
-      <Text multiline={false} numberOfLines={1} style={{ fontSize: 16 }}>
+      <Text multiline={false} numberOfLines={1} style={{ fontSize: 18 }}>
         {stamp}
       </Text>
       <Text multiline={false} numberOfLines={1} style={{ fontSize: 16 }}>
