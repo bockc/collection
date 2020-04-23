@@ -6,7 +6,6 @@ import ItemTeaser from '../ItemTeaser';
 const List = () => {
   const renderList = () =>
     Liste.map((item, index) => {
-      if (index > 20) return null;
       return (
         <ItemTeaser
           key={index}
