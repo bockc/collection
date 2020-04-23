@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-const SearchBar = (props) => {
+const SearchBar = () => {
+  const [input, setInput] = useState('');
+
   const renderClearTextButton = () => (
-    <TouchableOpacity style={{ height: 56, backgroundColor: 'white', justifyContent: 'center' }}>
+    <TouchableOpacity
+      style={{ height: 56, paddingLeft: 8, backgroundColor: 'white', justifyContent: 'center' }}
+      onPress={() => {
+        if (input !== '') {
+          setInput('');
+        }
+      }}
+    >
       <Text style={{ fontSize: 18, marginRight: 4 }}>X</Text>
     </TouchableOpacity>
   );
@@ -37,7 +46,8 @@ const SearchBar = (props) => {
       {renderSearchIcon()}
       <TextInput
         style={{ flex: 1, height: 56, backgroundColor: 'white' }}
-        // inlineImageLeft="search_icon"
+        value={input}
+        onChangeText={(newInput) => setInput(newInput)}
         placeholder="Rechercher"
       />
       {renderClearTextButton()}
