@@ -30,7 +30,7 @@ const App = () => {
   const usingHermes = typeof HermesInternal === 'object' && HermesInternal !== null;
   return (
     <>
-      <StatusBar barStyle="dark-content" />
+      {/* <StatusBar barStyle="dark-content" /> */}
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
-  footer: {
+   footer: {
     color: Colors.dark,
     fontSize: 12,
     fontWeight: '600',
@@ -112,6 +112,6 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     textAlign: 'right',
   },
-});
+})
 
 export default App;

@@ -25,7 +25,15 @@
   },
   "settings": {
     "import/resolver": {
-      "babel-module": {}
+      "babel-module": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".tsx",
+          ".json",
+          ".native.js"
+        ]
+      }
     }
   }
 }
