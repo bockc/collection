@@ -2,3 +2,4 @@ node_modules
 Liste.xls
 Liste.js
 android/.gradle
+android/app/build
