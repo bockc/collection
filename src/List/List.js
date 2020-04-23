@@ -1,22 +1,28 @@
 import React from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
+import Liste from '../../Liste';
 import ItemTeaser from '../ItemTeaser';
 
 const List = () => {
+  const renderList = () =>
+    Liste.map((item, index) => {
+      if (index > 20) return null;
+      return (
+        <ItemTeaser
+          key={index}
+          data={{
+            identification: item['identification (décor - forme)'],
+            stamp: item['tampon cachet signature'],
+            value: item.Valeur,
+            itemID: index,
+          }}
+        />
+      );
+    });
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#EEEEEE', padding: 4 }}>
-      <ItemTeaser
-        data={{
-          identification: 'Rusticana, ovale sur plat',
-          stamp: 'de service vers 1900',
-          value: '100€',
-          itemID: '203',
-        }}
-      />
-      <ItemTeaser />
-      <ItemTeaser />
-      <ItemTeaser />
-      <ItemTeaser />
+      <ScrollView>{renderList()}</ScrollView>
     </SafeAreaView>
   );
 };
