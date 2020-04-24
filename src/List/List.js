@@ -23,7 +23,7 @@ const List = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <SearchBar />
-      <ScrollView style={{ flex: 1, padding: 4, backgroundColor: 'purple' }}>
+      <ScrollView style={{ flex: 1, padding: 4, backgroundColor: '#EEEEEE' }}>
         {renderList()}
       </ScrollView>
     </SafeAreaView>

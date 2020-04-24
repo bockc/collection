@@ -2,4 +2,9 @@ node_modules
 Liste.xls
 Liste.js
 android/.gradle
+android/.project
+android/.settings
 android/app/build
+android/app/.settings
+android/app/.classpath
+android/app/.project

@@ -6,7 +6,14 @@ const SearchBar = () => {
 
   const renderClearTextButton = () => (
     <TouchableOpacity
-      style={{ height: 56, paddingLeft: 8, backgroundColor: 'white', justifyContent: 'center' }}
+      style={{
+        height: 50,
+        paddingLeft: 8,
+        borderTopRightRadius: 8,
+        borderBottomRightRadius: 8,
+        backgroundColor: 'white',
+        justifyContent: 'center',
+      }}
       onPress={() => {
         if (input !== '') {
           setInput('');
@@ -22,9 +29,11 @@ const SearchBar = () => {
       style={{
         backgroundColor: 'white',
         flex: 0,
-        height: 56,
+        height: 50,
         paddingLeft: 4,
         justifyContent: 'center',
+        borderTopLeftRadius: 8,
+        borderBottomLeftRadius: 8,
       }}
     >
       <Image source={{ uri: 'search_icon' }} style={{ height: 24, width: 24 }} tintColor="black" />
@@ -45,7 +54,7 @@ const SearchBar = () => {
     >
       {renderSearchIcon()}
       <TextInput
-        style={{ flex: 1, height: 56, backgroundColor: 'white' }}
+        style={{ flex: 1, height: 50, backgroundColor: 'white' }}
         value={input}
         onChangeText={(newInput) => setInput(newInput)}
         placeholder="Rechercher"
