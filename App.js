@@ -7,10 +7,13 @@
  */
 
 import React from 'react';
+import { PermissionsAndroid } from 'react-native';
 
 import EntryPoint from './src';
 
 /* <StatusBar barStyle="dark-content" /> */
+
+PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE);
 
 const App: () => React$Node = () => <EntryPoint />;
 

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import PropTypes from 'prop-types';
+import HamburgerMenu from './HamburgerMenu';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [input, setInput] = useState('');
 
   const renderClearTextButton = () => (
@@ -36,7 +38,7 @@ const SearchBar = () => {
         borderBottomLeftRadius: 8,
       }}
     >
-      <Image source={{ uri: 'search_icon' }} style={{ height: 24, width: 24 }} tintColor="black" />
+      <Image source={{ uri: 'search_icon' }} style={{ height: 20, width: 20 }} tintColor="grey" />
     </View>
   );
 
@@ -46,12 +48,14 @@ const SearchBar = () => {
         flex: 0,
         flexDirection: 'row',
         height: 64,
-        paddingHorizontal: 4,
+        paddingLeft: 2,
+        paddingRight: 6,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'lightblue',
       }}
     >
+      <HamburgerMenu onMenuOpen={props.onMenuOpen} />
       {renderSearchIcon()}
       <TextInput
         style={{ flex: 1, height: 50, backgroundColor: 'white' }}
@@ -62,6 +66,10 @@ const SearchBar = () => {
       {renderClearTextButton()}
     </View>
   );
+};
+
+SearchBar.propTypes = {
+  onMenuOpen: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
