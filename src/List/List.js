@@ -28,7 +28,7 @@ const List = () => {
           data={{
             identification: item['identification (décor - forme)'],
             stamp: item['tampon cachet signature'],
-            value: item.Valeur,
+            value: item.valeur,
             itemID: index,
           }}
         />
