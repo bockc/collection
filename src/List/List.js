@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Alert,
   Dimensions,
@@ -9,19 +9,46 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import RNFileSelector from 'react-native-file-selector';
-import RNFS from 'react-native-fs';
+// import RNFileSelector from 'react-native-file-selector';
+// import RNFS from 'react-native-fs';
 import Liste from '../../Liste';
 import SearchBar from '../SearchBar';
 import ItemTeaser from '../ItemTeaser';
 import images from '../../assets';
+import Database from '../../Database';
 
 const List = () => {
   const [actionsheetVisible, setActionsheetVisible] = useState(false);
-  // const [list, setList] = useState([]);
+  const [list, setList] = useState([]);
+  useEffect(() => {
+    Database.getList()
+      .then((data) => setList(data))
+      .then(() => {
+        const final = Database.addItem({
+          id: 0,
+          shape: 'shape',
+          stamp: 'stamp',
+          worth: 'worth',
+          notes: 'notes',
+          image: 'image',
+        });
+        console.log('FINAL', final);
+      })
+      .catch((err) => console.log('err', err));
+  }, []);
 
   const renderList = () =>
     Liste.map((item, index) => {
+      // Database.addItem({
+      //   id: index,
+      //   shape: item['identification (décor - forme)'],
+      //   stamp: item['tampon cachet signature'],
+      //   worth: item.valeur,
+      //   notes: '',
+      //   image: '',
+      // }).then((result) => {
+      //   console.log('-----------RESULT-----------', result);
+      // });
       return (
         <ItemTeaser
           key={index}
@@ -37,33 +64,33 @@ const List = () => {
 
   const importCollection = () => {
     return null;
-    RNFileSelector.Show({
-      title: 'Choisis le fichier',
-      onDone: (path) => {
-        console.log(`file selected: ${path}`);
-        RNFS.readFile(path, 'utf8')
-          // .then((rawContent) => {
-          //   console.log('RAWCONTENT', typeof rawContent, rawContent);
-          //   return JSON.stringify(rawContent);
-          // })
-          .then((stringifiedContent) => {
-            console.log('STRINGIFIEDCONTENT', typeof stringifiedContent, stringifiedContent);
-            return JSON.parse(`${stringifiedContent}`);
-          })
-          .then((parsedContent) => {
-            console.log('PARSEDCONTENT', parsedContent?.[0]);
-            return parsedContent;
-          })
-          .catch((e) => {
-            console.warn('Error', e);
-          });
-      },
-      onCancel: () => {
-        console.log('cancelled');
-      },
-    });
+    // RNFileSelector.Show({
+    //   title: 'Choisis le fichier',
+    //   onDone: (path) => {
+    //     console.log(`file selected: ${path}`);
+    //     RNFS.readFile(path, 'utf8')
+    //       // .then((rawContent) => {
+    //       //   console.log('RAWCONTENT', typeof rawContent, rawContent);
+    //       //   return JSON.stringify(rawContent);
+    //       // })
+    //       .then((stringifiedContent) => {
+    //         console.log('STRINGIFIEDCONTENT', typeof stringifiedContent, stringifiedContent);
+    //         return JSON.parse(`${stringifiedContent}`);
+    //       })
+    //       .then((parsedContent) => {
+    //         console.log('PARSEDCONTENT', parsedContent?.[0]);
+    //         return parsedContent;
+    //       })
+    //       .catch((e) => {
+    //         console.warn('Error', e);
+    //       });
+    //   },
+    //   onCancel: () => {
+    //     console.log('cancelled');
+    //   },
   };
 
+  console.log('LIST', list);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <SearchBar onMenuOpen={(isOpen) => setActionsheetVisible(isOpen)} />
